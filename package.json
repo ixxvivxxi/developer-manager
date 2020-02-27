@@ -22,8 +22,11 @@
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "babel-eslint": "^10.0.3",
+    "bootstrap": "^4.3.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.5.3",
+    "ember-bootstrap": "^3.1.1",
+    "ember-bootstrap-power-select": "^2.0.0",
     "ember-cli": "~3.16.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.17.2",
@@ -38,7 +41,10 @@
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^7.0.0",
     "ember-load-initializers": "^2.1.1",
+    "ember-local-storage": "^1.7.2",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-power-select": "^3.0.6",
+    "ember-power-select-with-create": "^0.7.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^7.0.0",
     "ember-source": "~3.16.0",
@@ -52,5 +58,6 @@
   },
   "ember": {
     "edition": "octane"
-  }
+  },
+  "dependencies": {}
 }
