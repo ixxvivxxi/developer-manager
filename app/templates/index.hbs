@@ -1,0 +1,95 @@
+<h2 class="my-4">
+  👨‍💻 Developers
+  <span class="float-right">
+    <LinkTo @route="developer" @model="0" class="btn btn-outline-info">
+      Hire
+    </LinkTo>
+  </span>
+</h2>
+
+<div class="row my-4 mx-1 justify-content-end">
+  <div class="col-3">
+    <PowerSelect
+      @allowClear={{true}}
+      @placeholder="Filter by role"
+      @options={{this.model.roles}}
+      @selected={{this.role}}
+      @onChange={{fn (mut this.role)}} as |role|
+    >
+      {{role.name}}
+    </PowerSelect>
+  </div>
+  <div class="col-3">
+    <PowerSelectMultiple
+      @allowClear={{true}}
+      @placeholder="Filter by frameworks"
+      @options={{this.model.frameworks}}
+      @selected={{this.frameworks}}
+      @onChange={{fn (mut this.frameworks)}} as |framework|
+    >
+      {{framework.name}}
+    </PowerSelectMultiple>
+  </div>
+</div>
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last Name
+      </th>
+      <th>
+        Role
+      </th>
+      <th>
+        Frameworks
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.developers as |developer|}}
+      <tr>
+        <td class="align-middle emoji">
+          {{developer.emoji}}
+        </td>
+        <td class="align-middle">
+          {{developer.firstName}}
+        </td>
+        <td class="align-middle">
+          {{developer.lastName}}
+        </td>
+        <td class="align-middle">
+          {{developer.role.name}}
+        </td>
+        <td class="align-middle">
+          {{#each developer.frameworks as |framework|}}
+            <span class="badge badge-secondary">
+              {{framework.name}}
+            </span>
+          {{/each}}
+        </td>
+        <td class="text-right align-middle">
+          <LinkTo
+            @route="developer"
+            @model={{developer.id}}
+            class="btn btn-outline-secondary"
+          >
+            Edit
+          </LinkTo>
+          <BsButton
+            @type="danger"
+            @outline={{true}}
+            @onClick={{fn this.fire developer}}
+          >
+            Fire
+          </BsButton>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+body {
+  background-color: #f9fbfa;
+}
+
+.table {
+  border-spacing: 0 15px;
+  border-collapse: separate;
+}
+
+.table > tbody > tr {
+  background-color: #fff;
+}
+
+.table > tbody td {
+  border-top: #f1f1f1 1px solid;
+  border-bottom: #f1f1f1 1px solid;
+}
+
+.table > tbody td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+  border-left: #f1f1f1 1px solid;
+}
+
+.table > tbody td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+  border-right: #f1f1f1 1px solid;
+}
+
+td.emoji {
+  font-size: 2rem;
+}

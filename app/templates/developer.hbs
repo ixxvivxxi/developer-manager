@@ -1,0 +1,83 @@
+<h2 class="my-4">
+  {{this.model.developer.emoji}}
+  {{#if this.model.developer.isNew}}
+    Hire
+  {{else}}
+    {{this.model.developer.fullName}}
+  {{/if}}
+</h2>
+<div class="row my-4 mx-1">
+  <LinkTo @route="index">
+    <u>
+      Back to developers
+    </u>
+  </LinkTo>
+</div>
+
+<form>
+  <div class="form-group">
+    <label>
+      First Name
+    </label>
+    <Input
+      @value={{this.model.developer.firstName}}
+      class={{concat "form-control" (if this.errors.firstName " is-invalid")}}
+      placeholder="First Name"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label>
+      Last Name
+    </label>
+    <Input
+      @value={{this.model.developer.lastName}}
+      class="form-control"
+      placeholder="Last Name"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label>
+      Role
+    </label>
+    <PowerSelectWithCreate
+      @allowClear={{true}}
+      @placeholder="Role"
+      @options={{this.model.roles}}
+      @selected={{this.model.developer.role}}
+      @onChange={{fn (mut this.model.developer.role)}}
+      @onCreate={{this.createRole}} as |role|
+    >
+      {{role.name}}
+    </PowerSelectWithCreate>
+  </div>
+  <div class="form-group">
+    <label>
+      Frameworks
+    </label>
+    <PowerSelectMultipleWithCreate
+      @allowClear={{true}}
+      @placeholder="Frameworks"
+      @options={{this.model.frameworks}}
+      @selected={{this.model.developer.frameworks}}
+      @onChange={{fn (mut this.model.developer.frameworks)}}
+      @onCreate={{this.createFramework}} as |framework|
+    >
+      {{framework.name}}
+    </PowerSelectMultipleWithCreate>
+  </div>
+
+  <BsButton
+    @defaultText={{if this.model.developer.isNew "Hire" "Save"}}
+    @type="btn btn-outline-info"
+    @onClick={{this.save}}
+  />
+  {{#unless this.model.developer.isNew}}
+    <BsButton
+      @defaultText="Fire"
+      @type="btn btn-outline-warning float-right"
+      @onClick={{this.fire}}
+    />
+  {{/unless}}
+</form>
