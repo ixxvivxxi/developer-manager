@@ -70,13 +70,13 @@
 
   <BsButton
     @defaultText={{if this.model.developer.isNew "Hire" "Save"}}
-    @type="btn btn-outline-info"
+    @type="btn btn-outline-info btn-save-developer"
     @onClick={{this.save}}
   />
   {{#unless this.model.developer.isNew}}
     <BsButton
       @defaultText="Fire"
-      @type="btn btn-outline-warning float-right"
+      @type="btn btn-outline-warning float-right btn-fire-developer"
       @onClick={{this.fire}}
     />
   {{/unless}}

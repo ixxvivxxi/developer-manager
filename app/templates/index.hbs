@@ -57,16 +57,16 @@
         <td class="align-middle emoji">
           {{developer.emoji}}
         </td>
-        <td class="align-middle">
+        <td class="align-middle developer-first-name">
           {{developer.firstName}}
         </td>
-        <td class="align-middle">
+        <td class="align-middle developer-last-name">
           {{developer.lastName}}
         </td>
-        <td class="align-middle">
+        <td class="align-middle developer-role">
           {{developer.role.name}}
         </td>
-        <td class="align-middle">
+        <td class="align-middle developer-frameworks">
           {{#each developer.frameworks as |framework|}}
             <span class="badge badge-secondary">
               {{framework.name}}
@@ -77,12 +77,12 @@
           <LinkTo
             @route="developer"
             @model={{developer.id}}
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-secondary btn-edit-developer"
           >
             Edit
           </LinkTo>
           <BsButton
-            @type="danger"
+            @type="danger btn-fire-developer"
             @outline={{true}}
             @onClick={{fn this.fire developer}}
           >
