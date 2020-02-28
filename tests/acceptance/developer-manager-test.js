@@ -33,7 +33,7 @@ module('Acceptance | developer manager', function(hooks) {
 
     assert.dom('.btn-save-developer').hasText('Hire');
     await click('.btn-save-developer');
-    assert.dom('form .form-group:nth-child(1) input').hasClass('is-invalid');
+    assert.equal(currentURL(), '/0');
 
     await click('a');
     assert.equal(currentURL(), '/');

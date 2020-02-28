@@ -6,7 +6,8 @@ export default class DeveloperController extends Controller {
   @service store;
 
   @action
-  async save() {
+  async save(event) {
+    event.preventDefault();
     await this.model.developer.save();
     this.transitionToRoute('index');
   }
