@@ -24,7 +24,6 @@ export default class DeveloperRoute extends Route {
 
   @action
   willTransition() {
-    this.controller.errors = {};
     const model = this.controller.model;
     if (model.developer.isNew) {
       return model.developer.destroyRecord();

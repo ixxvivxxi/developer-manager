@@ -14,27 +14,29 @@
   </LinkTo>
 </div>
 
-<form>
+<form {{on "submit" this.save}} {{on "keypress" this.onKeypress}}>
   <div class="form-group">
-    <label>
+    <label for="firstName">
       First Name
     </label>
     <Input
       @value={{this.model.developer.firstName}}
       class={{concat "form-control" (if this.errors.firstName " is-invalid")}}
+      id="firstName"
       placeholder="First Name"
-      required
+      required="true"
     />
   </div>
   <div class="form-group">
-    <label>
+    <label for="lastName">
       Last Name
     </label>
     <Input
       @value={{this.model.developer.lastName}}
       class="form-control"
+      id="lastName"
       placeholder="Last Name"
-      required
+      required="true"
     />
   </div>
   <div class="form-group">
@@ -71,7 +73,7 @@
   <BsButton
     @defaultText={{if this.model.developer.isNew "Hire" "Save"}}
     @type="btn btn-outline-info btn-save-developer"
-    @onClick={{this.save}}
+    @buttonType="submit"
   />
   {{#unless this.model.developer.isNew}}
     <BsButton
